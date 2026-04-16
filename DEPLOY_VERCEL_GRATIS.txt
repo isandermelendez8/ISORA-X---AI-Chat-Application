@@ -1,0 +1,189 @@
+================================================================================
+           ISORA X - DEPLOY GRATIS A VERCEL (LA OPCIÓN MÁS FÁCIL)
+                    No necesitas instalar nada local
+================================================================================
+
+✅ VENTAJAS DE VERCEL:
+   - 100% GRATIS para proyectos personales
+   - Deploy automático desde GitHub
+   - No necesitas instalar Supabase CLI ni Firebase CLI
+   - URLs profesionales: isora-x.vercel.app
+   - HTTPS incluido
+   - Súper rápido
+
+================================================================================
+OPCIÓN A: DEPLOY DIRECTO DESDE GITHUB (RECOMENDADO)
+================================================================================
+
+PASO 1: Subir código a GitHub
+--------------------------------
+1. Ve a https://github.com/new
+2. Repository name: isora-x
+3. Make it public (o private si prefieres)
+4. Click "Create repository"
+
+5. En tu PC, abre PowerShell en la carpeta del proyecto:
+   cd "C:\Users\isand\Downloads\ISORA X\ISORA X WEBSITE"
+
+6. Ejecuta estos comandos:
+   
+   git init
+   git add .
+   git commit -m "Primer commit - ISORA X"
+   git branch -M main
+   git remote add origin https://github.com/TU_USUARIO/isora-x.git
+   git push -u origin main
+
+   (Reemplaza TU_USUARIO con tu usuario de GitHub)
+
+--------------------------------
+
+PASO 2: Conectar con Vercel
+--------------------------------
+1. Ve a https://vercel.com
+2. Login con tu cuenta de GitHub
+3. Click "Add New Project"
+4. Selecciona tu repositorio "isora-x"
+5. En "Framework Preset" selecciona: Vite
+6. En "Environment Variables" añade:
+
+   VITE_SUPABASE_URL=https://bcurlbalhffztaoojumo.supabase.co
+   VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJjdXJsYmFsaGZmenRhb29qdW1vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNjYyOTksImV4cCI6MjA5MTk0MjI5OX0.skzLwo1QJrP_iGDo_8LJH4hDwhiqUQSXu4npyj0YDM8
+
+7. Click "Deploy"
+
+--------------------------------
+
+PASO 3: ¡Listo!
+--------------------------------
+- Vercel compilará automáticamente tu proyecto
+- En 2-3 minutos tendrás tu URL: https://isora-x.vercel.app
+- Cada vez que hagas push a GitHub, se actualiza automáticamente
+
+
+================================================================================
+OPCIÓN B: DEPLOY SIN GITHUB (Subir ZIP)
+================================================================================
+
+Si NO quieres usar GitHub, puedes usar la CLI de Vercel:
+
+PASO 1: Instalar Vercel CLI
+--------------------------------
+npm install -g vercel
+
+--------------------------------
+
+PASO 2: Login en Vercel
+--------------------------------
+vercel login
+# Te abrirá el navegador para autorizar
+
+--------------------------------
+
+PASO 3: Preparar proyecto
+--------------------------------
+1. Crea archivo .env.local en la carpeta del proyecto:
+
+   VITE_SUPABASE_URL=https://bcurlbalhffztaoojumo.supabase.co
+   VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJjdXJsYmFsaGZmenRhb29qdW1vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNjYyOTksImV4cCI6MjA5MTk0MjI5OX0.skzLwo1QJrP_iGDo_8LJH4hDwhiqUQSXu4npyj0YDM8
+
+2. Asegúrate que package.json tenga el build script:
+   "scripts": {
+     "build": "tsc && vite build"
+   }
+
+--------------------------------
+
+PASO 4: Deploy
+--------------------------------
+cd "C:\Users\isand\Downloads\ISORA X\ISORA X WEBSITE"
+vercel --prod
+
+# Te preguntará:
+# ? Set up and deploy? [Y/n] → Y
+# ? Which scope? [Tu usuario] → Enter
+# ? Link to existing project? [y/N] → N (primera vez)
+# ? What's your project name? [isora-x-website] → isora-x
+
+# ¡Listo! Tu URL será: https://isora-x.vercel.app
+
+
+================================================================================
+ALTERNATIVA GRATIS: NETLIFY
+================================================================================
+
+Otra opción 100% gratis:
+
+1. Ve a https://app.netlify.com/drop
+2. Arrastra la carpeta "dist" (después de npm run build)
+3. ¡Listo! Te dan URL instantánea
+
+O con CLI:
+npm install -g netlify-cli
+netlify login
+netlify deploy --prod --dir=dist
+
+
+================================================================================
+CONFIGURACIÓN DE SUPABASE (YA ESTÁ LISTO)
+================================================================================
+
+✅ Tu base de datos Supabase YA está configurada y funcionando:
+   URL: https://bcurlbalhffztaoojumo.supabase.co
+   
+✅ Las Edge Functions YA están deployadas:
+   - chat-complete
+   - chat-ai
+   - generate-image
+
+✅ Tu API Token YA está configurado:
+   HF_TOKEN: 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
+
+NO necesitas hacer nada más en Supabase, solo conectar el frontend.
+
+
+================================================================================
+RESUMEN: QUÉ NECESITAS HACER AHORA
+================================================================================
+
+OPCIÓN FÁCIL (GitHub + Vercel):
+├─ 1. Subir a GitHub (5 min)
+├─ 2. Conectar Vercel (3 min)
+└─ 3. Añadir variables de entorno (2 min)
+   Resultado: https://isora-x.vercel.app
+
+OPCIÓN SIN GITHUB (Vercel CLI):
+├─ 1. npm install -g vercel
+├─ 2. vercel login
+├─ 3. Crear .env.local
+└─ 4. vercel --prod
+   Resultado: https://isora-x.vercel.app
+
+
+================================================================================
+SOLUCIÓN DE PROBLEMAS
+================================================================================
+
+❌ "Cannot find module"
+✅ Solución: npm install
+
+❌ "Build failed"
+✅ Solución: Verificar que el build funciona local:
+   npm run build
+   (Debe crear carpeta "dist")
+
+❌ "Supabase connection error"
+✅ Solución: Verificar que las variables de entorno estén correctas:
+   VITE_SUPABASE_URL=https://bcurlbalhffztaoojumo.supabase.co
+   VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+❌ "404 Not Found" al recargar /chat
+✅ Solución: Añadir archivo vercel.json:
+   {
+     "rewrites": [{"source": "/(.*)", "destination": "/index.html"}]
+   }
+
+
+================================================================================
+🚀 ¡TU WEB ESTARÁ ONLINE EN 5 MINUTOS!
+================================================================================

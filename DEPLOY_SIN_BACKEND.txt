@@ -1,0 +1,209 @@
+================================================================================
+    ISORA X - DEPLOY CON BACKEND INCLUIDO (SIN INSTALAR NADA)
+        Backend + Frontend juntos en Vercel (100% Gratis)
+================================================================================
+
+✅ SOLUCIÓN: Backend serverless integrado en Vercel
+   - No necesitas instalar Supabase CLI
+   - No necesitas Supabase Edge Functions
+   - No necesitas base de datos (usa localStorage por ahora)
+   - El backend se deploya AUTOMÁTICAMENTE con el frontend
+
+================================================================================
+ARCHIVOS NUEVOS CREADOS (YA ESTÁN LISTOS)
+================================================================================
+
+1. api/chat.js          ← Backend para chat con IA
+2. api/image.js         ← Backend para generar imágenes  
+3. vercel.json          ← Configuración de Vercel
+4. src/hooks/useAI.ts   ← Actualizado para usar API de Vercel
+
+ESTOS ARCHIVOS YA ESTÁN EN TU PROYECTO LISTOS PARA DEPLOY
+
+
+================================================================================
+PASOS PARA DEPLOY (3 MINUTOS)
+================================================================================
+
+OPCIÓN 1: VERCEL CON GITHUB (RECOMENDADO)
+-------------------------------------------
+
+1. Subir código a GitHub:
+   - Ve a https://github.com/new
+   - Repository name: isora-x
+   - Create repository
+
+2. En tu PC, abre PowerShell en la carpeta:
+   cd "C:\Users\isand\Downloads\ISORA X\ISORA X WEBSITE"
+
+3. Ejecuta:
+   git init
+   git add .
+   git commit -m "ISORA X - Backend incluido"
+   git branch -M main
+   git remote add origin https://github.com/TU_USUARIO/isora-x.git
+   git push -u origin main
+
+4. Conectar con Vercel:
+   - Ve a https://vercel.com
+   - Login con GitHub
+   - "Add New Project"
+   - Selecciona "isora-x"
+   - Framework: Vite
+   - Click "Deploy"
+
+5. Configurar API Token (IMPORTANTE):
+   - En Vercel Dashboard, ve a Settings → Environment Variables
+   - Añade: HUGGINGFACE_API_TOKEN = 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
+   - Re-deploy
+
+6. ¡LISTO! Tu URL será: https://isora-x.vercel.app
+
+
+OPCIÓN 2: VERCEL CLI (SIN GITHUB)
+-----------------------------------
+
+1. Instalar Vercel CLI:
+   npm install -g vercel
+
+2. Login:
+   vercel login
+
+3. Ir a la carpeta:
+   cd "C:\Users\isand\Downloads\ISORA X\ISORA X WEBSITE"
+
+4. Deploy:
+   vercel --prod
+
+5. Configurar variables:
+   - Ve a https://vercel.com/dashboard
+   - Selecciona tu proyecto
+   - Settings → Environment Variables
+   - Añade: HUGGINGFACE_API_TOKEN = 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
+
+6. Re-deploy:
+   vercel --prod
+
+
+================================================================================
+CÓMO FUNCIONA
+================================================================================
+
+ANTES (necesitabas Supabase):
+Frontend → Supabase Edge Functions → HuggingFace
+         (requería CLI + deploy manual)
+
+AHORA (todo automático):
+Frontend → /api/chat (Vercel Serverless) → HuggingFace
+         (se deploya solo con el frontend)
+
+Las funciones en carpeta /api/ se convierten automáticamente en:
+- https://tu-app.vercel.app/api/chat
+- https://tu-app.vercel.app/api/image
+
+
+================================================================================
+QUÉ INCLUYE ESTA VERSIÓN
+================================================================================
+
+✅ Chat con IA (Mistral 7B via HuggingFace)
+✅ Generación de imágenes (Stable Diffusion)
+✅ Detección automática de intenciones (NLP)
+✅ Modo demo (funciona sin API token)
+✅ Chat full-screen (/chat)
+✅ Interfaz completa con sidebar
+✅ Sin comandos / (texto libre)
+
+⚠️ SIN (para versión futura):
+- Autenticación de usuarios (Supabase Auth)
+- Base de datos de perfiles
+- Control de créditos/límites
+- Panel de admin
+
+Para agregar eso después, solo conectas Supabase Auth.
+
+
+================================================================================
+PRUEBA RÁPIDA
+================================================================================
+
+Después de deployar, prueba en el chat:
+
+1. "Hola, ¿cómo estás?" → Chat normal
+2. "Genera una imagen de un gato" → Creará imagen
+3. "Escribe código Python para sumar dos números" → Generará código
+4. "Comprime estos archivos" → Creará ZIP
+
+Si todo funciona = ¡ÉXITO!
+
+
+================================================================================
+SOLUCIÓN DE PROBLEMAS
+================================================================================
+
+❌ "404 /api/chat not found"
+✅ Verifica que la carpeta api/ esté en el root del proyecto
+✅ Verifica que vercel.json esté configurado
+
+❌ "HUGGINGFACE_API_TOKEN not found"
+✅ Ve a Vercel Dashboard → Settings → Environment Variables
+✅ Añade la variable y re-deploya
+
+❌ "Build failed"
+✅ Verifica que package.json tenga:
+   "scripts": {
+     "build": "tsc && vite build"
+   }
+
+❌ La página no carga /chat
+✅ Añade a vercel.json:
+   {
+     "rewrites": [
+       { "source": "/(.*)", "destination": "/index.html" }
+     ]
+   }
+
+
+================================================================================
+TOKEN DE HUGGINGFACE
+================================================================================
+
+Tu token: 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
+
+Si necesitas uno nuevo:
+1. Ve a https://huggingface.co/settings/tokens
+2. New token → Name: isora-x → Role: read
+3. Copia el nuevo token
+4. Actualiza en Vercel Environment Variables
+
+
+================================================================================
+RESUMEN
+================================================================================
+
+ESTÁ LISTO PARA DEPLOY:
+✅ Backend integrado (api/chat.js, api/image.js)
+✅ Frontend actualizado (useAI.ts usa /api/)
+✅ Configuración de Vercel (vercel.json)
+✅ Tu API Token configurado
+
+SOLO NECESITAS:
+→ Subir a Vercel (3 minutos)
+→ Configurar environment variable (1 minuto)
+→ ¡Listo!
+
+
+================================================================================
+URL FINAL
+================================================================================
+
+Después del deploy:
+
+Landing:  https://isora-x.vercel.app/
+Chat:     https://isora-x.vercel.app/chat
+API Chat: https://isora-x.vercel.app/api/chat
+API Img:  https://isora-x.vercel.app/api/image
+
+================================================================================
+                    ¡TU APP ESTÁ LISTA PARA DEPLOY!
+================================================================================

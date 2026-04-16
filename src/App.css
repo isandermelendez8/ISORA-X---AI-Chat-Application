@@ -1,0 +1,74 @@
+/* App-specific styles */
+
+/* Ensure smooth scrolling behavior */
+html {
+  scroll-behavior: auto;
+}
+
+/* Pin spacer fix for GSAP */
+.pin-spacer {
+  pointer-events: none !important;
+}
+
+.pin-spacer > * {
+  pointer-events: auto !important;
+}
+
+/* Ensure sections stack properly */
+.section-pinned {
+  will-change: transform;
+}
+
+/* Craft image optimization */
+.craft-glow {
+  will-change: opacity, transform;
+}
+
+/* Word animation optimization */
+.word {
+  will-change: transform, opacity;
+  display: inline-block;
+}
+
+/* Glass morphism enhancement */
+.glass {
+  will-change: backdrop-filter;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .headline-hero {
+    font-size: clamp(28px, 8vw, 44px) !important;
+  }
+  
+  .headline-section {
+    font-size: clamp(24px, 6vw, 36px) !important;
+  }
+  
+  .section-pinned {
+    min-height: 100svh;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Loading state */
+.loading {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.loaded {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
