@@ -620,7 +620,6 @@ import {
   ListStart,
   ListEnd,
   ListOrdered,
-  List,
   AlignLeft,
   AlignCenter,
   AlignRight,
