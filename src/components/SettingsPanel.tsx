@@ -773,7 +773,6 @@ import {
   MessageCircleIcon,
   MessageCircleDashed,
   MessageCircleMore,
-  MessageSquare,
   MessageSquareDashed,
   MessageSquareMore,
   MessageSquarePlus,
